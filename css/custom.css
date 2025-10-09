@@ -1,0 +1,597 @@
+/* Custom styles for Lavina Eventique */
+
+/* Logo styling - with !important to ensure it applies across all pages */
+header .nav-brand.text-logo,
+.header-area .nav-brand.text-logo {
+    font-size: 75% !important; /* Reduce by 25% from original size */
+}
+
+header .logo-square,
+.header-area .logo-square {
+    display: inline-block !important;
+    width: 0.5em !important;
+    height: 0.5em !important;
+    background-color: #666 !important;
+    margin-left: 5px !important;
+    position: relative !important;
+    top: 0 !important;
+    vertical-align: baseline !important;
+}
+
+header .lavina,
+.header-area .lavina {
+    font-weight: 600 !important;
+}
+
+header .eventique,
+.header-area .eventique {
+    font-weight: 300 !important;
+}
+
+header .text-logo,
+.header-area .text-logo {
+    font-size: 1.5rem !important;
+}
+
+/* Alternative Navigation Menu Hover Effects */
+.classynav ul li a {
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.classynav ul li a:hover {
+    background-color: rgba(252, 96, 96, 0.1);
+    color: #fc6060;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.classynav ul li.active a {
+    background-color: rgba(252, 96, 96, 0.15);
+    color: #fc6060;
+    font-weight: 500;
+}
+
+/* Download Card Hover Effects */
+.download-card {
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+}
+
+.download-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.download-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #fc6060, #ff9d9d);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.download-card:hover:before {
+    transform: translateY(0);
+}
+
+/* Portfolio button styling */
+.portfolio-btn {
+    display: inline-block !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    float: none !important;
+    color: #ffffff !important;
+    background-color: #fc6060 !important;
+    border-color: #fc6060 !important;
+    padding: 10px 20px !important;
+    border-radius: 4px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.portfolio-btn:hover {
+    background-color: #e45454 !important;
+    border-color: #e45454 !important;
+}
+
+/* Remove right margin that might be causing alignment issues */
+.text-center .alime-btn.mr-4 {
+    margin-right: 1.5rem !important;
+}
+
+@media (max-width: 767px) {
+    .portfolio-btn {
+        display: block !important;
+        width: 80% !important;
+        max-width: 250px !important;
+        margin: 0 auto !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .text-center .alime-btn.mr-4 {
+        margin-right: 0 !important;
+    }
+}
+
+/* Portfolio button centering fix */
+.text-center .alime-btn {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .text-center .alime-btn {
+        display: block;
+        width: 80%;
+        max-width: 250px;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}
+
+/* Responsive fixes */
+@media (max-width: 767px) {
+    /* Reduce text logo size on mobile */
+    header .nav-brand.text-logo,
+    .header-area .nav-brand.text-logo {
+        font-size: 75% !important;
+    }
+    
+    /* Directly target the text spans */
+    header .nav-brand.text-logo .lavina,
+    header .nav-brand.text-logo .eventique,
+    .header-area .nav-brand.text-logo .lavina,
+    .header-area .nav-brand.text-logo .eventique {
+        font-size: 20px !important;
+    }
+    
+    header .logo-square,
+    .header-area .logo-square {
+        width: 0.4em !important;
+        height: 0.4em !important;
+    }
+    
+    /* Our Services section fixes */
+    .service-item {
+        margin-bottom: 20px;
+    }
+    
+    .pt-lg-5 {
+        padding-top: 0 !important;
+    }
+    
+    .service-item .position-relative img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .service-item .text-center h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .service-item .service-overlay a {
+        transform: scale(0.8);
+    }
+    
+    .container-xxl.py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    .row.g-3 > div {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Fix for the section heading */
+    .text-center.mx-auto.mb-5 h1.display-6 {
+        font-size: 24px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        word-wrap: break-word !important;
+        padding: 0 10px !important;
+    }
+    
+    .text-center.mx-auto.mb-5 p.text-primary {
+        font-size: 14px !important;
+        margin-bottom: 5px !important;
+    }
+    
+    /* Fix for header slides */
+    .welcome-text h2 {
+        font-size: 28px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 10px !important;
+        word-wrap: break-word !important;
+    }
+    
+    .welcome-text p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        max-height: 200px !important;
+        overflow-y: auto !important;
+        padding-right: 10px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Specific fix for the second slide */
+    .single-welcome-slide:nth-child(2) .welcome-text p {
+        max-height: 150px !important;
+        overflow-y: auto !important;
+    }
+
+    .portfolio-btn:hover {
+        color: white !important;
+    }
+    .testimonial-item img {
+        height: 100px !important; /* Set a fixed height */
+        width: auto; /* Maintain aspect ratio */
+        object-fit: contain; /* Ensure the image fits within the container */
+        display: block;
+        margin: 0 auto; /* Center the image */
+    }
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    text-align: center;
+}
+
+/* Mobile Button Fixes */
+@media (max-width: 767.98px) {
+    .btn {
+        display: inline-block;
+        margin: 5px auto;
+        min-width: 200px;
+        text-align: center;
+    }
+
+    .text-center .btn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .alime-btn {
+        display: inline-block;
+        min-width: 200px;
+        text-align: center;
+        margin: 5px auto;
+    }
+
+    .portfolio-button,
+    .hero-btn-group,
+    .section-box .text-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .hero-btn-group .btn,
+    .section-box .btn {
+        margin: 5px auto;
+    }
+
+    .download-card .btn {
+        width: 100%;
+        max-width: 250px;
+        margin: 10px auto;
+    }
+}
+
+/* Testimonial Carousel Navigation Buttons */
+.owl-nav {
+    margin-top: 30px;
+}
+
+.owl-nav button.btn {
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+    background-color: #fc6060;
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: unset !important; /* Override the mobile button min-width */
+}
+
+.owl-nav button.btn:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.owl-nav button.btn i {
+    line-height: 45px;
+}
+
+/* Mobile specific overrides for owl nav buttons */
+@media (max-width: 767.98px) {
+    .owl-nav button.btn {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        margin: 0 8px;
+        font-size: 16px;
+    }
+    
+    .owl-nav button.btn i {
+        line-height: 40px;
+    }
+}
+
+/* Mobile alignment fixes */
+@media (max-width: 767.98px) {
+    .section-box .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .section-box .text-center {
+        padding: 0 15px;
+    }
+
+    .section-box .text-center .alime-btn {
+        width: 100%;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .why-choose-us-content {
+        padding: 30px 20px !important;
+        margin-bottom: 30px !important;
+        text-align: center;
+    }
+
+    .why-choose-us-content i {
+        font-size: 40px !important;
+        margin-bottom: 15px !important;
+        display: block !important;
+        color: #fc6060 !important;
+    }
+
+    .why-choose-us-content h4 {
+        font-size: 20px !important;
+        margin-bottom: 15px !important;
+        font-weight: 600 !important;
+    }
+
+    .why-choose-us-content p {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .section-box .container .row > div {
+        margin-bottom: 20px !important;
+    }
+
+    .section-box .container .row > div:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .text-center.mx-auto.mb-5 {
+        margin-bottom: 30px !important;
+    }
+
+    .text-center.mx-auto.mb-5 h1 {
+        font-size: 24px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .text-center.mx-auto.mb-5 p {
+        font-size: 14px !important;
+    }
+}
+
+/* Mobile image height fixes */
+@media (max-width: 767.98px) {
+    img.img-fluid {
+        height: auto !important;
+        max-height: none !important;
+    }
+}
+
+/* Mobile-specific logo adjustments */
+@media (max-width: 767.98px) {
+    header .nav-brand.text-logo,
+    .header-area .nav-brand.text-logo {
+        justify-content: flex-start !important;
+        text-align: left !important;
+        padding-left: 15px !important;
+        margin-right: auto !important;
+        font-size: 18px !important;
+    }
+
+    header .logo-square,
+    .header-area .logo-square {
+        display: none !important;
+    }
+
+    header .lavina,
+    .header-area .lavina,
+    header .eventique,
+    .header-area .eventique {
+        display: inline-block !important;
+        font-size: 18px !important;
+        line-height: normal !important;
+    }
+}
+
+/* Icon fixes */
+.fa,
+.fas {
+    font-family: 'Font Awesome 5 Free' !important;
+    font-weight: 900;
+}
+
+.far {
+    font-family: 'Font Awesome 5 Free' !important;
+    font-weight: 400;
+}
+
+.fab {
+    font-family: 'Font Awesome 5 Brands' !important;
+    font-weight: 400;
+}
+
+.ti {
+    font-family: 'themify' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fix for specific icons */
+.fa-heart-o:before {
+    content: "\f004";
+    font-weight: 400;
+}
+
+.fa-check:before {
+    content: "\f00c";
+}
+
+.fa-link:before {
+    content: "\f0c1";
+}
+
+.ti-facebook:before {
+    content: "\e741";
+}
+
+.ti-instagram:before {
+    content: "\e73d";
+}
+
+.ti-pinterest:before {
+    content: "\e731";
+}
+
+.ti-search:before {
+    content: "\e610";
+}
+
+.ti-close:before {
+    content: "\e646";
+}
+
+/* Service Section Icon Fixes */
+@media (max-width: 767.98px) {
+    .service-item .service-overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .service-item .service-overlay a.btn {
+        width: 45px !important;
+        height: 45px !important;
+        min-width: unset !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .service-item .service-overlay a.btn i {
+        font-size: 16px;
+        line-height: 1;
+        width: auto;
+        height: auto;
+    }
+
+    .btn-lg-square {
+        width: 45px !important;
+        height: 45px !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Why Choose Us Icon Styling */
+.why-choose-us-content {
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.why-choose-us-content i {
+    font-size: 60px;
+    color: #fc6060;
+    margin-bottom: 15px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.why-choose-us-content:hover i {
+    color: #333333;
+}
+
+@media (max-width: 767.98px) {
+    .why-choose-us-content {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .why-choose-us-content i {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .why-choose-us-content h4 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .why-choose-us-content p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+}
+
+/* Hero Button Alignment */
+.hero-btn-group.text-left {
+    text-align: left !important;
+    justify-content: flex-start !important;
+}
+
+@media (max-width: 767.98px) {
+    .hero-btn-group.text-left {
+        text-align: left !important;
+        justify-content: flex-start !important;
+        padding-left: 0 !important;
+    }
+    
+    .hero-btn-group.text-left .alime-btn {
+        margin-left: 0 !important;
+    }
+}

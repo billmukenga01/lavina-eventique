@@ -1,0 +1,120 @@
+/* Mobile Header Consistency Fix
+   This ensures all pages have the same header appearance on mobile as portfolio.html
+*/
+
+/* Icon styles */
+[class^="ti-"],
+[class*=" ti-"] {
+    display: inline-block !important;
+    font-family: 'themify' !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Font Awesome icon fixes */
+/* [class^="fa-"],
+[class*=" fa-"] {
+    display: inline-block !important;
+    font-family: 'Font Awesome 5 Free' !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+.fa-heart-o:before {
+    content: "\f004" !important;
+} */
+
+/* Reset any previous mobile styles */
+@media only screen and (max-width: 767px) {
+  /* Fix for text logo on mobile */
+  .nav-brand.text-logo {
+    display: flex;
+    align-items: center;
+    max-width: none !important;
+    margin-right: 15px !important;
+  }
+  
+  .nav-brand.text-logo .lavina,
+  .nav-brand.text-logo .eventique {
+    font-size: 18px;
+  }
+  
+  .nav-brand.text-logo .logo-square {
+    width: 8px;
+    height: 8px;
+    margin-left: 5px;
+  }
+  
+  /* Fix header area background */
+  .header-area {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+  }
+  
+  /* Fix menu toggle button */
+  .classy-navbar-toggler {
+    margin-right: 0 !important;
+  }
+  
+  .navbarToggler span {
+    background-color: #ffffff !important;
+  }
+  
+  /* Fix menu items */
+  .classynav ul li a {
+    color: #252525 !important;
+    font-size: 14px !important;
+    padding: 10px 15px !important;
+  }
+  
+  /* Fix search icon */
+  .search-icon {
+    color: #ffffff !important;
+    margin-left: 15px !important;
+  }
+  
+  /* Fix active menu item */
+  .classynav ul li.active a {
+    color: #fc6060 !important;
+  }
+  
+  /* Fix menu close button */
+  .classycloseIcon {
+    top: 20px !important;
+    right: 20px !important;
+  }
+  
+  /* Fix menu container */
+  .classy-menu {
+    background-color: #ffffff !important;
+  }
+  
+  /* Fix search modal */
+  .modal-dialog {
+    max-width: 90% !important;
+    margin: 1.75rem auto !important;
+  }
+  
+  .modal-content {
+    border-radius: 0 !important;
+  }
+  
+  .modal-body form input[type="search"] {
+    height: 50px !important;
+    padding: 0 20px !important;
+  }
+  
+  .modal-body form button {
+    height: 50px !important;
+    padding: 0 20px !important;
+  }
+}
