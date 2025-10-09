@@ -11,7 +11,7 @@
     <title>Lavina Eventique</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="./img/core-img/favicon.png">
+    <link rel="icon" href="./img/core-img/favicon.webp">
     <!-- Icon Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -52,6 +52,14 @@
     </style>
     
 </head>
+
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init('YOUR_EMAILJS_USER_ID'); // TODO: Replace with your EmailJS user ID
+        })();
+    </script>
 
 <body>
     <!-- Preloader -->
@@ -152,7 +160,7 @@
     <!-- Header Area End -->
 
     <!-- Breadcrumb Area Start -->
-    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/lavina-70.jpg);">
+    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/lavina-70.webp);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -238,6 +246,37 @@
                                 </div>
                             </div>
                         </form>
+                        <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            var form = document.getElementById('contact-form');
+                            form.addEventListener('submit', function(e) {
+                                e.preventDefault();
+                                // Hide previous messages
+                                document.getElementById('success-message').style.display = 'none';
+                                document.getElementById('error-message').style.display = 'none';
+                                // Collect form data
+                                var name = document.getElementById('name').value;
+                                var email = document.getElementById('email').value;
+                                var subject = document.getElementById('subject').value;
+                                var message = document.getElementById('message').value;
+                                // Prepare params for EmailJS
+                                var templateParams = {
+                                    from_name: name,
+                                    from_email: email,
+                                    subject: subject,
+                                    message: message
+                                };
+                                // Send email via EmailJS
+                                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                                    .then(function(response) {
+                                        document.getElementById('success-message').style.display = 'block';
+                                        form.reset();
+                                    }, function(error) {
+                                        document.getElementById('error-message').style.display = 'block';
+                                    });
+                            });
+                        });
+                        </script>
                     </div>
                 </div>
             </div>
@@ -264,7 +303,7 @@
                     <div class="footer-content d-flex align-items-center justify-content-between flex-column flex-md-row text-center">
                         <!-- Footer Logo -->
                         <div class="footer-logo mb-4 mb-md-0">
-                            <a href="#"><img src="./img/core-img/logo-lavina.png" alt="Lavina Eventique"></a>
+                            <a href="#"><img src="./img/core-img/logo-lavina.webp" alt="Lavina Eventique"></a>
                         </div>
                         <!-- Copywrite Text -->
                         <div class="copywrite-text mb-4 mb-md-0">
