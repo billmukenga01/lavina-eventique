@@ -11,7 +11,7 @@
     <title>Lavina Eventique</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="./img/core-img/favicon.webp">
+    <link rel="icon" href="./img/core-img/logo-lavina.webp">
     <!-- Icon Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,6 +20,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/header-mobile-fix.css">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+        emailjs.init('QNb0GhZeBkM__FZGA');
+      })();
+    </script>
 
     <style>
         /* Font Awesome icon styles */
@@ -267,7 +274,7 @@
                                     message: message
                                 };
                                 // Send email via EmailJS
-                                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                                emailjs.send('service_n9qhqss', 'template_sblzh5x', templateParams)
                                     .then(function(response) {
                                         document.getElementById('success-message').style.display = 'block';
                                         form.reset();
