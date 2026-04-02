@@ -1,115 +1,171 @@
 /**
- * Contact Form Handler for Firebase
- * This script handles the contact form submission without requiring PHP
- * It can be connected to Firebase Functions later for email sending
+ * Contact Form Handler — Lavina Eventique
+ * Sends emails via EmailJS (client-side, no backend required).
+ * 
+ * EmailJS Configuration:
+ *   Public Key : QNb0GhZeBkM__FZGA  (initialized in <head>)
+ *   Service ID : service_n9qhqss
+ *   Template ID: template_sblzh5x
  */
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Check for URL parameters to show success/error messages
-    const urlParams = new URLSearchParams(window.location.search);
-    const status = urlParams.get('status');
-    
-    if (status === 'success') {
-        showMessage('Your message has been sent successfully!', 'success');
-    } else if (status === 'error') {
-        showMessage('There was an error sending your message. Please try again later.', 'error');
-    }
-    
-    // Get the contact form
-    const contactForm = document.getElementById('contact-form');
-    
-    // Add submit event listener to the form
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleFormSubmit);
-    }
-    
-    /**
-     * Handle form submission
-     * @param {Event} event - The form submission event
-     */
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        
-        // Get form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        
-        // Validate form data
-        if (!name || !email || !message) {
-            showMessage('Please fill in all required fields.', 'error');
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('contact-form');
+    var submitBtn = document.getElementById('submit-btn');
+    if (!form || !submitBtn) return;
+
+    var SERVICE_ID  = 'service_n9qhqss';
+    var TEMPLATE_ID = 'template_sblzh5x';
+
+    // ── Field references ──────────────────────────────────────
+    var fields = {
+        name:       document.getElementById('name'),
+        email:      document.getElementById('email'),
+        phone:      document.getElementById('phone'),
+        eventType:  document.getElementById('event-type'),
+        subject:    document.getElementById('subject'),
+        message:    document.getElementById('message')
+    };
+
+    // ── Live validation on blur ───────────────────────────────
+    Object.keys(fields).forEach(function (key) {
+        var el = fields[key];
+        if (!el) return;
+        el.addEventListener('blur', function () {
+            validateField(el);
+        });
+        // Clear error state when user starts typing
+        el.addEventListener('input', function () {
+            el.classList.remove('is-invalid');
+        });
+    });
+
+    // ── Submit handler ────────────────────────────────────────
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Validate all required fields
+        var valid = true;
+        ['name', 'email', 'eventType', 'subject', 'message'].forEach(function (key) {
+            if (!validateField(fields[key])) valid = false;
+        });
+        if (!valid) {
+            showToast('Please fill in all required fields correctly.', 'error');
             return;
         }
-        
-        if (!isValidEmail(email)) {
-            showMessage('Please enter a valid email address.', 'error');
-            return;
-        }
-        
-        // In a real implementation, this would send data to Firebase Function
-        // For now, we'll simulate a successful submission
-        
-        // Show loading state
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.innerHTML;
-        submitButton.innerHTML = 'Sending...';
-        submitButton.disabled = true;
-        
-        // Simulate sending (would be replaced with actual Firebase Function call)
-        setTimeout(() => {
-            // Reset form
-            contactForm.reset();
-            
-            // Reset button
-            submitButton.innerHTML = originalButtonText;
-            submitButton.disabled = false;
-            
-            // Show success message
-            showMessage('Your message has been sent successfully!', 'success');
-            
-            // Update URL without reloading the page
-            const url = new URL(window.location);
-            url.searchParams.set('status', 'success');
-            window.history.pushState({}, '', url);
-        }, 1500);
-    }
-    
+
+        // Set loading state
+        setLoading(true);
+
+        // Build template params
+        var templateParams = {
+            from_name:  fields.name.value.trim(),
+            from_email: fields.email.value.trim(),
+            phone:      fields.phone ? fields.phone.value.trim() : '',
+            event_type: fields.eventType ? fields.eventType.value : '',
+            subject:    fields.subject.value.trim(),
+            message:    fields.message.value.trim()
+        };
+
+        // Send via EmailJS
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+            .then(function () {
+                showToast('Your message has been sent successfully! We\'ll get back to you within 24 hours.', 'success');
+                form.reset();
+                // Clear all validation classes
+                Object.keys(fields).forEach(function (key) {
+                    if (fields[key]) {
+                        fields[key].classList.remove('is-valid', 'is-invalid');
+                    }
+                });
+                setLoading(false);
+            }, function (error) {
+                console.error('EmailJS Error:', error);
+                showToast('Sorry, there was a problem sending your message. Please email us directly at eventsbylavina@gmail.com or give us a call.', 'error');
+                setLoading(false);
+            });
+    });
+
+    // ── Helpers ───────────────────────────────────────────────
+
     /**
-     * Show a message to the user
-     * @param {string} text - The message text
-     * @param {string} type - The message type ('success' or 'error')
+     * Validate a single field. Returns true if valid.
      */
-    function showMessage(text, type) {
-        // Create message element if it doesn't exist
-        let messageElement = document.getElementById('form-message');
-        
-        if (!messageElement) {
-            messageElement = document.createElement('div');
-            messageElement.id = 'form-message';
-            contactForm.parentNode.insertBefore(messageElement, contactForm);
+    function validateField(el) {
+        if (!el) return true;
+        if (!el.hasAttribute('required')) return true;
+
+        var value = el.value ? el.value.trim() : '';
+        var isValid = true;
+
+        if (!value) {
+            isValid = false;
+        } else if (el.type === 'email') {
+            isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
         }
-        
-        // Set message content and style
-        messageElement.textContent = text;
-        messageElement.className = `alert alert-${type === 'success' ? 'success' : 'danger'} mt-3`;
-        
-        // Auto-hide message after 5 seconds
-        setTimeout(() => {
-            messageElement.style.opacity = '0';
-            setTimeout(() => {
-                messageElement.remove();
-            }, 500);
-        }, 5000);
+
+        el.classList.toggle('is-invalid', !isValid);
+        el.classList.toggle('is-valid', isValid);
+        return isValid;
     }
-    
+
     /**
-     * Validate email format
-     * @param {string} email - The email to validate
-     * @returns {boolean} - Whether the email is valid
+     * Toggle the submit button loading state.
      */
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
+    function setLoading(loading) {
+        submitBtn.disabled = loading;
+        submitBtn.classList.toggle('loading', loading);
+        var btnText = submitBtn.querySelector('.btn-text');
+        if (btnText) {
+            btnText.textContent = loading ? 'Sending...' : 'Send Message';
+        }
+    }
+
+    /**
+     * Show a toast notification.
+     * @param {string} message
+     * @param {'success'|'error'} type
+     */
+    function showToast(message, type) {
+        // Remove any existing toast
+        var existing = document.querySelector('.toast-notification');
+        if (existing) existing.remove();
+
+        var toast = document.createElement('div');
+        toast.className = 'toast-notification toast-' + type;
+
+        var icon = type === 'success'
+            ? '<i class="fas fa-check-circle"></i>'
+            : '<i class="fas fa-exclamation-circle"></i>';
+
+        toast.innerHTML =
+            '<span class="toast-icon">' + icon + '</span>' +
+            '<span class="toast-message">' + message + '</span>' +
+            '<button class="toast-close" aria-label="Close">&times;</button>';
+
+        document.body.appendChild(toast);
+
+        // Trigger reflow then animate in
+        toast.offsetHeight;
+        requestAnimationFrame(function () {
+            toast.classList.add('show');
+        });
+
+        // Close button
+        toast.querySelector('.toast-close').addEventListener('click', function () {
+            dismissToast(toast);
+        });
+
+        // Auto-dismiss after 6 seconds
+        setTimeout(function () {
+            dismissToast(toast);
+        }, 6000);
+    }
+
+    function dismissToast(toast) {
+        if (!toast || !toast.parentNode) return;
+        toast.classList.remove('show');
+        setTimeout(function () {
+            if (toast.parentNode) toast.remove();
+        }, 400);
     }
 });

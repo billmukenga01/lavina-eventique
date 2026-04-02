@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Lavina Eventique - Transform your events into unforgettable experiences with our premium event planning and decoration services in East and Central Africa.">
+    <meta name="description" content="Lavina Eventique Portfolio - Browse our stunning gallery of events, weddings, corporate gatherings, and special occasions in East and Central Africa.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Lavina Eventique</title>
+    <title>Portfolio | Lavina Eventique</title>
 
     <!-- Favicon -->
     <link rel="icon" href="./img/core-img/logo-lavina.webp">
@@ -18,8 +18,366 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/header-mobile-fix.css">
+    <link rel="stylesheet" href="css/mobile-fixes.css">
+    <link rel="stylesheet" href="css/mobile-responsive-v2.css">
+
+    <style>
+        /* ========== Portfolio Styles ========== */
+
+        .portfolio-slider-section {
+            padding: 60px 0 40px;
+        }
+
+        .portfolio-section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .portfolio-section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-section-title p {
+            color: #888;
+            font-size: 16px;
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ========== Category Filter Buttons ========== */
+        .portfolio-filter-menu {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-filter-menu .filter-btn {
+            display: inline-block;
+            padding: 10px 28px;
+            margin: 5px 6px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            background: transparent;
+            color: #555;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-filter-menu .filter-btn:hover {
+            border-color: #fc6060;
+            color: #fc6060;
+        }
+
+        .portfolio-filter-menu .filter-btn.active {
+            background: #fc6060;
+            border-color: #fc6060;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(252, 96, 96, 0.3);
+        }
+
+        /* ========== Owl Carousel overrides ========== */
+        .portfolio-carousel .owl-stage-outer {
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .portfolio-carousel .owl-item {
+            cursor: pointer;
+        }
+
+        .portfolio-slide {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #f5f5f5;
+        }
+
+        /* Images: contain (not cover) — show full image, no stretch/crop */
+        .portfolio-slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+            background: #f0f0f0;
+        }
+
+        .portfolio-slide:hover img {
+            transform: scale(1.03);
+        }
+
+        .portfolio-slide .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 30px 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .portfolio-slide:hover .slide-overlay {
+            opacity: 1;
+        }
+
+        .slide-overlay .zoom-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .slide-overlay .zoom-icon:hover {
+            background: #fc6060;
+            border-color: #fc6060;
+        }
+
+        /* Navigation arrows */
+        .portfolio-carousel .owl-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            padding: 0 15px;
+            margin: 0;
+        }
+
+        .portfolio-carousel .owl-nav button {
+            width: 52px !important;
+            height: 52px !important;
+            min-width: unset !important;
+            border-radius: 50% !important;
+            background: rgba(255,255,255,0.9) !important;
+            color: #333 !important;
+            font-size: 22px !important;
+            pointer-events: auto;
+            transition: all 0.3s ease !important;
+            border: none !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .portfolio-carousel .owl-nav button:hover {
+            background: #fc6060 !important;
+            color: #fff !important;
+            transform: scale(1.1);
+        }
+
+        .portfolio-carousel .owl-nav button span {
+            line-height: 1;
+            font-size: 28px;
+        }
+
+        /* Dots */
+        .portfolio-carousel .owl-dots {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .portfolio-carousel .owl-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .portfolio-carousel .owl-dot.active {
+            background: #fc6060;
+            transform: scale(1.2);
+        }
+
+        .portfolio-carousel .owl-dot:hover {
+            background: #ff8a8a;
+        }
+
+        /* Image counter badge */
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            z-index: 2;
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== Lightbox ========== */
+        .portfolio-lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 99999;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .portfolio-lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .lightbox-content img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 25px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 100000;
+        }
+
+        .lightbox-close:hover {
+            background: #fc6060;
+            border-color: #fc6060;
+        }
+
+        .lightbox-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 52px;
+            height: 52px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 100000;
+        }
+
+        .lightbox-nav:hover {
+            background: #fc6060;
+            border-color: #fc6060;
+        }
+
+        .lightbox-prev { left: 25px; }
+        .lightbox-next { right: 25px; }
+
+        .lightbox-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            z-index: 100000;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .portfolio-slide img {
+                height: 380px;
+            }
+            .portfolio-filter-menu .filter-btn {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .portfolio-slide img {
+                height: 280px;
+            }
+
+            .portfolio-carousel .owl-nav button {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .portfolio-carousel .owl-nav button span {
+                font-size: 22px;
+            }
+
+            .lightbox-nav {
+                width: 42px;
+                height: 42px;
+            }
+
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+
+            .portfolio-section-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .portfolio-filter-menu .filter-btn {
+                padding: 7px 16px;
+                font-size: 12px;
+                margin: 3px 3px;
+            }
+        }
+
+        /* Font Awesome icon styles */
+        .fas {
+            font-family: 'Font Awesome 5 Free' !important;
+            font-weight: 900 !important;
+        }
+    </style>
     
 </head>
 
@@ -79,33 +437,8 @@
                             <div class="classynav">
                                 <ul id="nav">
                                     <li><a href="./index.html">Home</a></li>
-
-                                    <!-- commented out pages section -->
-
-
-                                    <!-- <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./index.html">- Home</a></li>
-                                            <li><a href="./about.html">- About</a></li>
-                                            <li><a href="./gallery.html">- Gallery</a></li>
-                                            <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Blog Details</a></li>
-                                            <li><a href="./contact.html">- Contact</a></li>
-                                            <li><a href="#">- Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li> -->
-
-
                                     <li><a href="./about.html">About</a></li>
                                     <li class="active"><a href="./portfolio.html">Portfolio</a></li>
-                        
                                     <li><a href="./contact.html">Contact</a></li>
                                 </ul>
 
@@ -127,11 +460,11 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
-                        <h2 class="page-title">Gallery</h2>
+                        <h2 class="page-title">Portfolio</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="icon_house_alt"></i> Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                                <li class="breadcrumb-item"><a href="index.html"><i class="ti-home"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Portfolio</li>
                             </ol>
                         </nav>
                     </div>
@@ -141,172 +474,127 @@
     </section>
     <!-- Breadcrumb Area End -->
 
-    <!-- Gallery Area Start -->
-    <div class="alime-portfolio-area section-padding-80 clearfix">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <!-- Projects Menu -->
-                    <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms">
-                        <div class="portfolio-menu text-center">
-                            <button class="btn active" data-filter="*">All</button>
-                            <button class="btn" data-filter=".human">Weddings & Ruracios</button>
-                            <button class="btn" data-filter=".nature">Coporate Events</button>
-                            <button class="btn" data-filter=".country">Special Occasions</button>
-                            <button class="btn" data-filter=".video"></button>
-                        </div>
-                    </div>
-                </div>
+    <!-- Portfolio Slider Area Start -->
+    <div class="portfolio-slider-section">
+        <div class="container">
+            <div class="portfolio-section-title">
+                <h2>Our Event Gallery</h2>
+                <p>Browse through our collection of beautifully crafted events — from elegant weddings to stunning corporate gatherings.</p>
             </div>
 
-            <div class="row alime-portfolio">
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp" data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/39.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/39.webp" class="portfolio-img">+</a>
-                        </div>
-                    </div>
+            <!-- Category Filter Buttons -->
+            <div class="portfolio-filter-menu">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="wedding">Weddings &amp; Ruracios</button>
+                <button class="filter-btn" data-filter="corporate">Corporate Events</button>
+                <button class="filter-btn" data-filter="special">Special Occasions</button>
+            </div>
+        </div>
+
+        <div class="container-fluid" style="padding: 0 30px;">
+            <div class="portfolio-carousel owl-carousel owl-theme">
+
+                <!-- ======= WEDDINGS & RURACIOS ======= -->
+                <div class="portfolio-slide" data-category="wedding">
+                    <img src="img/bg-img/lavina-1.webp" alt="Lavina Eventique - Wedding">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="wedding">
+                    <img src="img/bg-img/lavina-2.webp" alt="Lavina Eventique - Wedding">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="wedding">
+                    <img src="img/bg-img/lavina-3.webp" alt="Lavina Eventique - Wedding">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="wedding">
+                    <img src="img/bg-img/lavina-5.webp" alt="Lavina Eventique - Ruracio">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="wedding">
+                    <img src="img/bg-img/lavina-10.webp" alt="Lavina Eventique - Wedding Setup">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="wedding">
+                    <img src="img/bg-img/lavina-15.webp" alt="Lavina Eventique - Wedding Decor">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
                 </div>
 
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video human mb-30 wow fadeInUp" data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/40.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/40.webp" class="portfolio-img">+</a>
-                        </div>
-                    </div>
+                <!-- ======= CORPORATE EVENTS ======= -->
+                <div class="portfolio-slide" data-category="corporate">
+                    <img src="img/bg-img/lavina-11.webp" alt="Lavina Eventique - Corporate Event">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="corporate">
+                    <img src="img/bg-img/lavina-17.webp" alt="Lavina Eventique - Corporate Setup">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="corporate">
+                    <img src="img/bg-img/lavina-20.webp" alt="Lavina Eventique - Corporate Dining">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="corporate">
+                    <img src="img/bg-img/lavina-25.webp" alt="Lavina Eventique - Corporate Styling">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="corporate">
+                    <img src="img/bg-img/lavina-28.webp" alt="Lavina Eventique - Corporate Venue">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="corporate">
+                    <img src="img/bg-img/lavina-30.webp" alt="Lavina Eventique - Corporate Event">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
                 </div>
 
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp" data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/41.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/41.webp" class="portfolio-img">+</a>
-                        </div>
-                    </div>
+                <!-- ======= SPECIAL OCCASIONS ======= -->
+                <div class="portfolio-slide" data-category="special">
+                    <img src="img/bg-img/lavina-35.webp" alt="Lavina Eventique - Special Occasion">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="special">
+                    <img src="img/bg-img/lavina-40.webp" alt="Lavina Eventique - Birthday">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="special">
+                    <img src="img/bg-img/lavina-45.webp" alt="Lavina Eventique - Baby Shower">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="special">
+                    <img src="img/bg-img/lavina-50.webp" alt="Lavina Eventique - Anniversary">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="special">
+                    <img src="img/bg-img/lavina-55.webp" alt="Lavina Eventique - Celebration">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
+                </div>
+                <div class="portfolio-slide" data-category="special">
+                    <img src="img/bg-img/lavina-60.webp" alt="Lavina Eventique - Special Event">
+                    <div class="slide-overlay"><div class="zoom-icon"><i class="fas fa-search-plus"></i></div></div>
                 </div>
 
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp" data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/42.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/42.webp" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp" data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/43.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/43.webp" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp" data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/44.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/44.webp" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp" data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/45.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/45.webp" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp" data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/46.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/46.webp" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp" data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/47.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/47.webp" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp" data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/48.webp" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/48.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp" data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/49.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/49.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Gallery Item -->
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp" data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/50.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/50.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
-            <!-- Portfolio Button -->
-            <div class="row">
+            <!-- Get In Touch Button -->
+            <div class="row mt-5">
                 <div class="col-12 text-center portfolio-button">
-                    <a href="#" class="btn alime-btn mb-3 mb-sm-0">Get Started</a>
+                    <a href="./contact.html" class="btn alime-btn mb-3 mb-sm-0">Get In Touch</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Gallery Area End -->
+    <!-- Portfolio Slider Area End -->
 
-    <!-- Follow Area Start -->
-    <!-- <div class="follow-area clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <h2>Follow Instagram</h2>
-                        <p>@Alime_photographer</p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+    <!-- Lightbox -->
+    <div class="portfolio-lightbox" id="portfolio-lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="Portfolio Image" id="lightbox-img">
+        </div>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
 
-        <!-- Instagram Feed Area -->
-        <!--  -->
-    <!-- Follow Area End -->
 
     <!-- Footer Area Start -->
     <footer class="footer-area">
@@ -316,7 +604,7 @@
                     <div class="footer-content d-flex align-items-center justify-content-between flex-column flex-md-row text-center">
                         <!-- Footer Logo -->
                         <div class="footer-logo mb-4 mb-md-0">
-                            <a href="#"><img src="./img/core-img/logo-lavina.png" alt="Lavina Eventique"></a>
+                            <a href="#"><img src="./img/core-img/logo-lavina.webp" alt="Lavina Eventique"></a>
                         </div>
                         <!-- Copywrite Text -->
                         <div class="copywrite-text mb-4 mb-md-0">
@@ -344,10 +632,169 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/popper.min.js"></script>
     <!-- Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- All Plugins -->
+    <!-- All Plugins (includes Owl Carousel) -->
     <script src="js/alime.bundle.js"></script>
     <!-- Active -->
     <script src="js/default-assets/active.js"></script>
+
+    <!-- Portfolio Slider, Filtering & Lightbox -->
+    <script>
+    $(document).ready(function() {
+
+        // ── Store all slides as data ────────────────────────
+        var allSlides = [];
+        $('.portfolio-carousel .portfolio-slide').each(function() {
+            allSlides.push({
+                category: $(this).attr('data-category'),
+                imgSrc:   $(this).find('img').attr('src'),
+                imgAlt:   $(this).find('img').attr('alt'),
+                el:       $(this).prop('outerHTML')
+            });
+        });
+
+        var currentFilter = 'all';
+        var carousel = null;
+
+        // ── Build & init carousel ───────────────────────────
+        function initCarousel(filter) {
+            // Destroy existing carousel
+            if (carousel) {
+                carousel.trigger('destroy.owl.carousel');
+                carousel.html('');
+                carousel.removeClass('owl-loaded');
+            }
+
+            carousel = $('.portfolio-carousel');
+
+            // Filter slides
+            var filtered = filter === 'all'
+                ? allSlides
+                : allSlides.filter(function(s) { return s.category === filter; });
+
+            // Inject filtered HTML
+            var html = '';
+            filtered.forEach(function(s, i) {
+                // Replace data-index so lightbox knows position
+                var slide = s.el.replace(/data-category="[^"]*"/, 'data-category="' + s.category + '" data-index="' + i + '"');
+                html += slide;
+            });
+            carousel.html(html);
+
+            // Init Owl
+            carousel.owlCarousel({
+                items: 1,
+                loop: filtered.length > 1,
+                center: true,
+                margin: 20,
+                nav: true,
+                navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true,
+                smartSpeed: 500,
+                responsive: {
+                    0:    { items: 1, margin: 10, stagePadding: 10 },
+                    768:  { items: 1, margin: 20, stagePadding: 40 },
+                    1200: { items: 1, margin: 30, stagePadding: 80 }
+                }
+            });
+
+            // Store the current filtered images for lightbox
+            carousel.data('filteredImages', filtered);
+        }
+
+        // ── Init with "all" ─────────────────────────────────
+        initCarousel('all');
+
+        // ── Category filter click ───────────────────────────
+        $('.filter-btn').on('click', function() {
+            var filter = $(this).attr('data-filter');
+            if (filter === currentFilter) return;
+
+            currentFilter = filter;
+            $('.filter-btn').removeClass('active');
+            $(this).addClass('active');
+
+            initCarousel(filter);
+        });
+
+        // ── Click slide → open lightbox ─────────────────────
+        $(document).on('click', '.portfolio-slide', function(e) {
+            e.preventDefault();
+            var idx = parseInt($(this).attr('data-index'), 10);
+            if (isNaN(idx)) idx = 0;
+            openLightbox(idx);
+        });
+
+        // ── Lightbox logic ──────────────────────────────────
+        var currentLightboxIndex = 0;
+
+        function getFilteredImages() {
+            return carousel.data('filteredImages') || allSlides;
+        }
+
+        function openLightbox(idx) {
+            currentLightboxIndex = idx;
+            updateLightboxImage();
+            $('#portfolio-lightbox').addClass('active');
+            $('body').css('overflow', 'hidden');
+        }
+
+        function closeLightbox() {
+            $('#portfolio-lightbox').removeClass('active');
+            $('body').css('overflow', '');
+        }
+
+        function updateLightboxImage() {
+            var imgs = getFilteredImages();
+            if (!imgs.length) return;
+            $('#lightbox-img').attr('src', imgs[currentLightboxIndex].imgSrc);
+            $('#lightbox-counter').text((currentLightboxIndex + 1) + ' / ' + imgs.length);
+        }
+
+        function nextImage() {
+            var imgs = getFilteredImages();
+            currentLightboxIndex = (currentLightboxIndex + 1) % imgs.length;
+            updateLightboxImage();
+        }
+
+        function prevImage() {
+            var imgs = getFilteredImages();
+            currentLightboxIndex = (currentLightboxIndex - 1 + imgs.length) % imgs.length;
+            updateLightboxImage();
+        }
+
+        // Lightbox controls
+        $('#lightbox-close').on('click', closeLightbox);
+        $('#lightbox-next').on('click', nextImage);
+        $('#lightbox-prev').on('click', prevImage);
+
+        // Close on background click
+        $('#portfolio-lightbox').on('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        // Keyboard navigation
+        $(document).on('keydown', function(e) {
+            if (!$('#portfolio-lightbox').hasClass('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // Touch swipe for lightbox
+        var touchStartX = 0;
+        $('#portfolio-lightbox').on('touchstart', function(e) {
+            touchStartX = e.originalEvent.touches[0].clientX;
+        }).on('touchend', function(e) {
+            var diff = touchStartX - e.originalEvent.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) {
+                diff > 0 ? nextImage() : prevImage();
+            }
+        });
+    });
+    </script>
 
 </body>
 
