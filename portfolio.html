@@ -30,31 +30,72 @@
     <link rel="stylesheet" href="css/mobile-responsive-v2.css">
 
     <style>
+        /* ========== Premium Base ========== */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #555;
+            background-color: #fafafa;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: #111;
+        }
+
         /* ========== Portfolio Styles ========== */
 
         .portfolio-slider-section {
-            padding: 60px 0 40px;
+            padding: 80px 0 40px;
+            background: #fff;
         }
 
         .portfolio-section-title {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-section-title .section-subtitle {
+            color: #fc6060;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
         }
 
         .portfolio-section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: #222;
-            margin-bottom: 12px;
+            color: #111;
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
 
         .portfolio-section-title p {
-            color: #888;
+            color: #777;
             font-size: 16px;
             max-width: 550px;
             margin: 0 auto;
-            line-height: 1.7;
+            line-height: 1.8;
         }
+
+        .portfolio-section-title .line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #fc6060 0%, #ff8a8a 100%);
+            border-radius: 2px;
+            margin: 0 auto 20px;
+        }
+
+        /* ========== Premium Footer ========== */
+        .footer-area {
+            background: #1a1a2e !important;
+        }
+        .footer-content { padding: 30px 0; }
+        .footer-area .copywrite-text p { color: rgba(255,255,255,0.5) !important; }
+        .footer-area .social-info a i { color: rgba(255,255,255,0.5) !important; transition: color 0.3s ease; }
+        .footer-area .social-info a:hover i { color: #fc6060 !important; }
 
         /* ========== Category Filter Buttons ========== */
         .portfolio-filter-menu {
@@ -483,7 +524,9 @@
     <div class="portfolio-slider-section">
         <div class="container">
             <div class="portfolio-section-title">
+                <span class="section-subtitle">Our Work</span>
                 <h2>Our Event Gallery</h2>
+                <div class="line"></div>
                 <p>Browse through our collection of beautifully crafted events — from elegant weddings to stunning corporate gatherings.</p>
             </div>
 
