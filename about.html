@@ -8,44 +8,390 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Lavina Eventique</title>
+    <title>About Us | Lavina Eventique</title>
 
     <!-- Favicon -->
     <link rel="icon" href="./img/core-img/logo-lavina.webp">
+    
     <!-- Icon Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/lightbox.min.css" rel="stylesheet">
-    <link href="css/owl.carousel.min.css" rel="stylesheet">
-
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/header-mobile-fix.css">
-
+    <link rel="stylesheet" href="css/mobile-fixes.css">
+    <link rel="stylesheet" href="css/mobile-responsive-v2.css">
+    <link href="css/animate.css" rel="stylesheet">
 
     <style>
-        .testimonial-item img {
-            height: 150px;
-            width: auto;
-            object-fit:contain;
+        /* ========== Typography & Layout Defaults ========== */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #555;
+            background-color: #fafafa;
+        }
+        
+        h1, h2, h3, h4, h5, h6, .page-title, .display-6 {
+            font-family: 'Playfair Display', serif;
+            color: #111;
+        }
+
+        .section-padding-100 { padding: 100px 0; }
+        .section-padding-100-50 { padding: 100px 0 50px; }
+        
+        /* Premium Subheading */
+        .section-subtitle {
+            color: #fc6060;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
             display: block;
-            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        /* ========== Hero Breadcrumb ========== */
+        .breadcrumb-area {
+            position: relative;
+            z-index: 1;
+            height: 450px !important;
+        }
+
+        .breadcrumb-area::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
+            z-index: -1;
+        }
+
+        .page-title {
+            font-size: 4rem !important;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* ========== About Us Section ========== */
+        .about-us-area {
+            background-color: #fff;
+            position: relative;
+        }
+
+        .about-us-content {
+            padding-right: 40px;
+        }
+
+        .about-us-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #666;
+        }
+
+        .about-video-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-video-wrapper img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .about-video-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-video-wrapper .video-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-play-btn-pulse {
+            width: 90px;
+            height: 90px;
+            background: #fc6060;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            padding-left: 5px; /* center the play icon */
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 20px rgba(252, 96, 96, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .video-play-btn-pulse::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            background: #fc6060;
+            z-index: -1;
+            animation: ripple 2s infinite;
+        }
+
+        .video-play-btn-pulse:hover {
+            background: #fff;
+            color: #fc6060;
+        }
+
+        @keyframes ripple {
+            0% { width: 90px; height: 90px; opacity: 0.8; }
+            100% { width: 150px; height: 150px; opacity: 0; }
+        }
+
+        /* ========== Why Choose Us ========== */
+        .why-choose-us-section {
+            background-color: #fcfcfc;
+            position: relative;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: all 0.4s ease;
+            height: 100%;
+            border-bottom: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 0;
+            background: linear-gradient(135deg, #fc6060 0%, #ff8a8a 100%);
+            z-index: -1;
+            transition: all 0.4s ease;
+            opacity: 0.05;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: #fc6060;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .feature-card:hover::before {
+            height: 100%;
+        }
+
+        .feature-icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(252, 96, 96, 0.1);
+            color: #fc6060;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 30px;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon-box {
+            background: #fc6060;
+            color: #fff;
+            transform: rotateY(180deg);
+        }
+
+        .feature-card h4 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ========== Testimonials (Logo Carousel) ========== */
+        .testimonial-section {
+            background-color: #fff;
+            position: relative;
+        }
+
+        .logo-box {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 30px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+            opacity: 0.6;
+        }
+
+        .logo-box:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            border-color: #fff;
+        }
+
+        .logo-box img {
+            max-width: 100%;
+            max-height: 100px;
+            object-fit: contain;
+            width: auto !important;
+        }
+
+        /* Navigation Buttons */
+        .custom-owl-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 15px;
+        }
+
+        .custom-owl-nav button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: #fff;
+            color: #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .custom-owl-nav button:hover {
+            background: #fc6060;
+            border-color: #fc6060;
+            color: #fff;
+        }
+
+        /* ========== Resources / Downloads ========== */
+        .downloads-section {
+            background-color: #fcfcfc;
+            position: relative;
+        }
+
+        .download-card-premium {
+            background: #fff;
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            height: 100%;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-card-premium::before {
+            content: '\f15b'; /* file-alt icon */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 140px;
+            color: #f7f7f7;
+            z-index: 0;
+            transition: all 0.4s ease;
+        }
+
+        .download-card-premium:hover::before {
+            color: rgba(252, 96, 96, 0.05);
+            transform: scale(1.1) rotate(-10deg);
+        }
+
+        .download-card-premium > * { position: relative; z-index: 1; }
+
+        .download-card-premium .doc-icon {
+            font-size: 40px;
+            color: #fc6060;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .download-card-premium h4 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .download-card-premium p {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .btn-download-premium {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border: 2px solid #fc6060;
+            color: #fc6060;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            background: transparent;
+            text-decoration: none !important;
+        }
+
+        .btn-download-premium:hover {
+            background: #fc6060;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(252, 96, 96, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 991px) {
+            .section-title { font-size: 2.2rem; }
+            .about-us-content { padding-right: 0; margin-bottom: 50px; }
+            .feature-card, .download-card-premium { padding: 40px 30px; }
         }
     </style>
-
 </head>
 
 <body>
@@ -53,7 +399,6 @@
     <div id="preloader">
         <div class="loader"></div>
     </div>
-    <!-- /Preloader -->
 
     <!-- Top Search Form Area -->
     <div class="top-search-area">
@@ -61,9 +406,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <!-- Close -->
                         <button type="button" class="btn close-btn" data-dismiss="modal"><i class="ti-close"></i></button>
-                        <!-- Form -->
                         <form action="index.html" method="post">
                             <input type="search" name="top-search-bar" class="form-control" placeholder="Search and hit enter...">
                             <button type="submit">Search</button>
@@ -76,13 +419,11 @@
 
     <!-- Header Area Start -->
     <header class="header-area">
-        <!-- Main Header Start -->
         <div class="main-header-area">
             <div class="classy-nav-container breakpoint-off">
                 <div class="container">
                     <!-- Classy Menu -->
                     <nav class="classy-navbar justify-content-between" id="alimeNav">
-
                         <!-- Logo -->
                         <a class="nav-brand text-logo" href="./index.html">
                             <span class="lavina">Lavina</span>
@@ -96,48 +437,19 @@
 
                         <!-- Menu -->
                         <div class="classy-menu">
-                            <!-- Menu Close Button -->
                             <div class="classycloseIcon">
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
-                            <!-- Nav Start -->
                             <div class="classynav">
                                 <ul id="nav">
                                     <li><a href="./index.html">Home</a></li>
-
-                                    <!-- commented out pages section -->
-
-
-                                    <!-- <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./index.html">- Home</a></li>
-                                            <li><a href="./about.html">- About</a></li>
-                                            <li><a href="./gallery.html">- Gallery</a></li>
-                                            <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Blog Details</a></li>
-                                            <li><a href="./contact.html">- Contact</a></li>
-                                            <li><a href="#">- Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                    <li><a href="#">- Dropdown Item</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li> -->
-
-
                                     <li class="active"><a href="./about.html">About</a></li>
                                     <li><a href="./portfolio.html">Portfolio</a></li>
-                        
                                     <li><a href="./contact.html">Contact</a></li>
                                 </ul>
-
                                 <!-- Search Icon -->
                                 <div class="search-icon" data-toggle="modal" data-target="#searchModal"><i class="ti-search"></i></div>
                             </div>
-                            <!-- Nav End -->
                         </div>
                     </nav>
                 </div>
@@ -147,16 +459,16 @@
     <!-- Header Area End -->
 
     <!-- Breadcrumb Area Start -->
-    <section class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/lavina-51.webp);">
+    <section class="breadcrumb-area jarallax" style="background-image: url(img/bg-img/lavina-51.webp);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcrumb-content text-center">
-                        <h2 class="page-title">About Us</h2>
+                        <h2 class="page-title wow fadeInDown" data-wow-delay="100ms">Our Story</h2>
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html"><i class="icon_house_alt"></i> Home</a></li>
-                                <li  class="breadcrumb-item active"aria-current="page">About</li>
+                            <ol class="breadcrumb justify-content-center wow fadeInUp" data-wow-delay="300ms">
+                                <li class="breadcrumb-item"><a href="index.html"><i class="ti-home"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">About Us</li>
                             </ol>
                         </nav>
                     </div>
@@ -167,188 +479,195 @@
     <!-- Breadcrumb Area End -->
 
     <!-- About Us Area Start -->
-    <div class="about-us-area section-padding-80-0 clearfix">
+    <section class="about-us-area section-padding-100">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
-                    <div class="about-us-content mb-80">
-                        <h3 class="wow fadeInUp" data-wow-delay="100ms">Creating Magical Moments</h3>
-                        <div class="line wow fadeInUp" data-wow-delay="200ms"></div>
-                        <p class="wow fadeInUp" data-wow-delay="300ms">At Lavina Eventique, we're driven by our passion for transforming ordinary spaces into extraordinary experiences. Founded with a vision to elevate event planning and decoration across East and Central Africa, we combine artistic creativity with meticulous execution to create celebrations that leave lasting impressions.</p>
-                        <p class="wow fadeInUp" data-wow-delay="400ms">Our team of dedicated professionals brings together diverse talents in design, logistics, and customer service to ensure every detail of your event exceeds expectations. From corporate gatherings and weddings to social celebrations, we approach each project with the same level of enthusiasm and commitment to excellence.</p>
-                        <a class="btn alime-btn btn-2 mt-30 wow fadeInUp" data-wow-delay="500ms" href="./contact.html">Contact Us</a>
+                    <div class="about-us-content">
+                        <span class="section-subtitle wow fadeInUp" data-wow-delay="100ms">Who We Are</span>
+                        <h2 class="section-title wow fadeInUp" data-wow-delay="200ms">Creating Magical Moments That Last a Lifetime</h2>
+                        <div class="line wow fadeInUp" data-wow-delay="300ms"></div>
+                        
+                        <p class="wow fadeInUp" data-wow-delay="400ms">At Lavina Eventique, we're driven by our passion for transforming ordinary spaces into extraordinary experiences. Founded with a vision to elevate event planning and decoration across East and Central Africa, we combine artistic creativity with meticulous execution to create celebrations that leave lasting impressions.</p>
+                        
+                        <p class="wow fadeInUp" data-wow-delay="500ms">Our team of dedicated professionals brings together diverse talents in design, logistics, and customer service to ensure every detail of your event exceeds expectations. From elegant weddings to high-profile corporate gatherings, we approach each project with unparalleled enthusiasm and a commitment to excellence.</p>
+                        
+                        <a class="btn alime-btn mt-4 wow fadeInUp" data-wow-delay="600ms" href="./contact.html">Plan Your Next Event</a>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
-                    <div class="about-video-area mb-80 wow fadeInUp" data-wow-delay="100ms">
-                        <img src="img/bg-img/1-karrey.webp" alt="">
-                        <div class="video-icon">
-                            <a href="https://www.youtube.com/watch?v=sSakBz_eYzQ" class="video-play-btn"><i class="arrow_triangle-right"></i></a>
+                    <div class="about-video-wrapper wow fadeInRight" data-wow-delay="300ms">
+                        <img src="img/bg-img/1-karrey.webp" alt="Lavina Eventique Team">
+                        <div class="video-overlay">
+                            <a href="https://www.youtube.com/watch?v=sSakBz_eYzQ" class="video-play-btn-pulse" aria-label="Play Video"><i class="fas fa-play"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- About Us Area End -->
 
     <!-- Why Choose Us Area Start -->
-    <div class="section-box section-padding-80-0">
+    <section class="why-choose-us-section section-padding-100-50">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
-                <p class="text-primary text-uppercase mb-2">Why Choose Us</p>
-                <h1 class="display-6 mb-4">Our Unique Approach</h1>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="text-center mb-80">
+                        <span class="section-subtitle wow fadeInUp" data-wow-delay="100ms">Our Approach</span>
+                        <h2 class="section-title wow fadeInUp" data-wow-delay="200ms">Why Clients Trust Lavina Eventique</h2>
+                    </div>
+                </div>
             </div>
+
             <div class="row">
-                <div class="col-12 col-md-4">
-                    <div class="why-choose-us-content text-center mb-80 wow fadeInUp" data-wow-delay="100ms">
-                        <div class="choose-us-icon">
-                            <i class="fas fa-star" aria-hidden="true"></i>
+                <!-- Feature 1 -->
+                <div class="col-12 col-md-4 mb-50">
+                    <div class="feature-card wow fadeInUp" data-wow-delay="200ms">
+                        <div class="feature-icon-box">
+                            <i class="fas fa-gem"></i>
                         </div>
                         <h4>Personalized Service</h4>
                         <p>We believe every event is unique. Our team works closely with you to understand your vision and bring it to life with meticulous attention to detail.</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <div class="why-choose-us-content text-center mb-80 wow fadeInUp" data-wow-delay="300ms">
-                        <div class="choose-us-icon">
-                            <i class="fas fa-trophy" aria-hidden="true"></i>
+                
+                <!-- Feature 2 -->
+                <div class="col-12 col-md-4 mb-50">
+                    <div class="feature-card wow fadeInUp" data-wow-delay="400ms">
+                        <div class="feature-icon-box">
+                            <i class="fas fa-award"></i>
                         </div>
                         <h4>Professional Excellence</h4>
-                        <p>With years of experience and a passionate team, we deliver exceptional quality and reliability in every event we handle.</p>
+                        <p>With years of experience and a passionate team, we deliver exceptional quality, unmatched reliability, and flawless execution.</p>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
-                    <div class="why-choose-us-content text-center mb-80 wow fadeInUp" data-wow-delay="500ms">
-                        <div class="choose-us-icon">
-                            <i class="fas fa-heart" aria-hidden="true"></i>
+                
+                <!-- Feature 3 -->
+                <div class="col-12 col-md-4 mb-50">
+                    <div class="feature-card wow fadeInUp" data-wow-delay="600ms">
+                        <div class="feature-icon-box">
+                            <i class="fas fa-paint-brush"></i>
                         </div>
                         <h4>Creative Design</h4>
-                        <p>Our innovative designs and attention to aesthetics ensure your event stands out and creates lasting memories for you and your guests.</p>
+                        <p>Our innovative designs and attention to aesthetics ensure your event stands out and creates breathtaking memories for your guests.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Why Choose Us Area End -->
 
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5">
+    <!-- Testimonial Logos Start -->
+    <section class="testimonial-section section-padding-100">
         <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase mb-2">Client's Review</p>
-                <h1 class="display-6 mb-0">More Than 200+ Customers Trusted Us</h1>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="text-center mb-60">
+                        <span class="section-subtitle wow fadeInUp" data-wow-delay="100ms">Our Partners</span>
+                        <h2 class="section-title wow fadeInUp" data-wow-delay="200ms">Trusted By Industry Leaders</h2>
+                        <p class="wow fadeInUp" data-wow-delay="300ms">Over 200+ customers and prestigious organizations have trusted us to deliver exceptional experiences.</p>
+                    </div>
+                </div>
             </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item bg-white p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 border p-1" src="img/bg-img/villa-rosa.webp" alt="">
-                        
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-carousel partner-carousel wow fadeInUp" data-wow-delay="400ms">
+                        <div class="logo-box">
+                            <img src="img/bg-img/villa-rosa.webp" alt="Villa Rosa Kempinski">
+                        </div>
+                        <div class="logo-box">
+                            <img src="img/bg-img/british.webp" alt="British High Commission">
+                        </div>
+                        <div class="logo-box">
+                            <img src="img/bg-img/kingdom.webp" alt="Kingdom Bank">
+                        </div>
+                        <div class="logo-box">
+                            <img src="img/bg-img/vertex.webp" alt="Vertex">
+                        </div>
+                        <div class="logo-box">
+                            <img src="img/bg-img/jw_marriott_nairobi_logo.webp" alt="JW Marriott">
+                        </div>
                     </div>
-                    <p class="mb-0"></p>
-                </div>
-                <div class="testimonial-item bg-white p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 border p-1" src="img/bg-img/british.webp" alt="">
-                       
-                    </div>
-                    <p class="mb-0"></p>
-                </div>
-                <div class="testimonial-item bg-white p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 p-1" src="img/bg-img/kingdom.webp" alt="">
                     
+                    <div class="custom-owl-nav wow fadeInUp" data-wow-delay="500ms">
+                        <button class="part-prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="part-next"><i class="fas fa-chevron-right"></i></button>
                     </div>
-                    <p class="mb-0"></p>
                 </div>
-                <div class="testimonial-item bg-white p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 border p-1" src="img/bg-img/vertex.webp" alt="">
-                       
-                    </div>
-                    <p class="mb-0"></p>
-                </div>
-                <div class="testimonial-item bg-white p-4">
-                    <div class="d-flex align-items-center mb-4">
-                        <img class="flex-shrink-0 border p-1" src="img/bg-img/jw_marriott_nairobi_logo.webp" alt="">
-                       
-                    </div>
-                    <p class="mb-0"></p>
-                </div>
-            </div>
-            <!-- Custom Navigation Buttons -->
-            <div class="owl-nav text-center mt-30">
-                <button class="owl-prev btn" aria-label="Previous testimonial">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="owl-next btn" aria-label="Next testimonial">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Testimonial End -->
 
     <!-- Downloads Area Start -->
-    <div class="container-xxl py-5">
+    <section class="downloads-section section-padding-100-50">
         <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase mb-2">Resources</p>
-                <h1 class="display-6 mb-5">Download Our Brochures</h1>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="text-center mb-60">
+                        <span class="section-subtitle wow fadeInUp" data-wow-delay="100ms">Resources</span>
+                        <h2 class="section-title wow fadeInUp" data-wow-delay="200ms">Download Our Brochures</h2>
+                    </div>
+                </div>
             </div>
-            <div class="row g-3">
-                <!-- Brochure Item 1 -->
-                <div class="col-lg-4 col-md-6 pt-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="fact-item custom-bg text-center h-100 p-5 download-card">
-                        <h4 class="mb-3">Event Planning Guide</h4>
-                        <span>Our comprehensive guide to planning the perfect event, from concept to execution.</span>
-                        <div class="mt-4">
-                            <a href="./documents/event-planning-guide.pdf" class="btn alime-btn btn-2" download><i class="ti-download mr-2"></i> Download PDF</a>
-                        </div>
+
+            <div class="row">
+                <!-- Brochure 1 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-50">
+                    <div class="download-card-premium wow fadeInUp" data-wow-delay="200ms">
+                        <i class="fas fa-book-open doc-icon"></i>
+                        <h4>Event Planning Guide</h4>
+                        <p>Our comprehensive guide to planning the perfect event, from initial concept to flawless execution.</p>
+                        <a href="./documents/event-planning-guide.pdf" class="btn-download-premium" download>
+                            Download <i class="fas fa-download ml-1"></i>
+                        </a>
                     </div>
                 </div>
-                <!-- Brochure Item 2 -->
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="fact-item custom-bg text-center h-100 p-5 download-card">
-                        <h4 class="mb-3">Services Brochure</h4>
-                        <span>Explore our full range of event planning and decoration services with pricing details.</span>
-                        <div class="mt-4">
-                            <a href="./documents/services-brochure.pdf" class="btn alime-btn btn-2" download><i class="ti-download mr-2"></i> Download PDF</a>
-                        </div>
+                
+                <!-- Brochure 2 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-50">
+                    <div class="download-card-premium wow fadeInUp" data-wow-delay="400ms">
+                        <i class="fas fa-clipboard-list doc-icon"></i>
+                        <h4>Services Brochure</h4>
+                        <p>Explore our full range of event planning and luxury decoration services with detailed pricing options.</p>
+                        <a href="./documents/services-brochure.pdf" class="btn-download-premium" download>
+                            Download <i class="fas fa-download ml-1"></i>
+                        </a>
                     </div>
                 </div>
-                <!-- Brochure Item 3 -->
-                <div class="col-lg-4 col-md-6 pt-lg-5 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="fact-item custom-bg text-center h-100 p-5 download-card">
-                        <h4 class="mb-3">Decoration Catalog</h4>
-                        <span>Browse our latest decoration themes, materials, and design inspirations for your event.</span>
-                        <div class="mt-4">
-                            <a href="./documents/decoration-catalog.pdf" class="btn alime-btn btn-2" download><i class="ti-download mr-2"></i> Download PDF</a>
-                        </div>
+                
+                <!-- Brochure 3 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-50">
+                    <div class="download-card-premium wow fadeInUp" data-wow-delay="600ms">
+                        <i class="fas fa-images doc-icon"></i>
+                        <h4>Decoration Catalog</h4>
+                        <p>Browse our latest luxury decoration themes, materials, and breathtaking design inspirations.</p>
+                        <a href="./documents/decoration-catalog.pdf" class="btn-download-premium" download>
+                            Download <i class="fas fa-download ml-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <!-- Downloads Area End -->
 
     <!-- Follow Area Start -->
-    <div class="follow-area clearfix">
+    <div class="follow-area clearfix section-padding-100-0">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading text-center">
-                        <h2>Follow Instagram</h2>
-                        <a href="https://www.instagram.com/lavina_eventique/"><p>@lavina-eventique</p></a>
+                        <h2 class="wow fadeInUp" data-wow-delay="100ms">Join Our Community</h2>
+                        <a class="wow fadeInUp" data-wow-delay="200ms" href="https://www.instagram.com/lavina_eventique/" target="_blank">
+                            <p>@lavina-eventique</p>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Instagram Feed Area -->
-            <!-- <div class="instagram-feed-area">
-                Content will be dynamically loaded by JavaScript
-            </div> -->
     </div>
     <!-- Follow Area End -->
 
@@ -358,20 +677,15 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-content d-flex align-items-center justify-content-between flex-column flex-md-row text-center">
-                        <!-- Footer Logo -->
                         <div class="footer-logo mb-4 mb-md-0">
                             <a href="#"><img src="./img/core-img/logo-lavina.webp" alt="Lavina Eventique"></a>
                         </div>
-                        <!-- Copywrite Text -->
                         <div class="copywrite-text mb-4 mb-md-0">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Lavina Eventique <i class="far fa-heart" aria-hidden="true"></i> <a href="https://colorlib.com" target="_blank"></a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Lavina Eventique</p>
                         </div>
-                        <!-- Social Info -->
                         <div class="social-info">
                             <a href="#"><i class="ti-facebook" aria-hidden="true"></i></a>
-                            <a href="#"><i class="ti-instagram" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/lavina_eventique/"><i class="ti-instagram" aria-hidden="true"></i></a>
                             <a href="#"><i class="ti-pinterest" aria-hidden="true"></i></a>
                         </div>
                     </div>
@@ -382,68 +696,39 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Footer Area End -->
 
     <!-- **** All JS Files ***** -->
-    <!-- jQuery 2.2.4 -->
     <script src="js/jquery.min.js"></script>
-    <!-- Popper -->
     <script src="js/popper.min.js"></script>
-    <!-- Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- All Plugins -->
     <script src="js/alime.bundle.js"></script>
-    <!-- Active -->
     <script src="js/default-assets/active.js"></script>
-    <script src="js/lightbox.min.js"></script>
-    <script src="js/waypoints.min.js"></script>
     
-
-    <script src="js/wow.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Owl Carousel -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-    <!-- WOW.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-
-    <!-- Custom JavaScript for Testimonial Carousel Navigation -->
+    <!-- Partner/Testimonial Carousel Init -->
     <script>
         $(document).ready(function() {
-            // Initialize the testimonial carousel
-            var testimonialCarousel = $(".testimonial-carousel").owlCarousel({
+            var partnerCarousel = $(".partner-carousel").owlCarousel({
                 autoplay: true,
-                smartSpeed: 1000,
-                margin: 25,
+                autoplayTimeout: 3000,
+                smartSpeed: 800,
+                margin: 30,
                 loop: true,
-                center: true,
                 dots: false,
-                nav: false,
+                nav: false, // We use custom nav buttons
                 responsive: {
-                    0:{
-                        items:1
-                    },
-                    768:{
-                        items:2
-                    },
-                    992:{
-                        items:3
-                    }
+                    0: { items: 1 },
+                    576: { items: 2 },
+                    768: { items: 3 },
+                    1200: { items: 4 }
                 }
             });
 
-            // Custom navigation buttons
-            $('.owl-prev').click(function() {
-                testimonialCarousel.trigger('prev.owl.carousel');
+            // Connect custom nav buttons
+            $('.part-prev').click(function() {
+                partnerCarousel.trigger('prev.owl.carousel');
             });
-
-            $('.owl-next').click(function() {
-                testimonialCarousel.trigger('next.owl.carousel');
+            $('.part-next').click(function() {
+                partnerCarousel.trigger('next.owl.carousel');
             });
         });
     </script>
-
-    <script src="js/instagram-feed.js"></script>
-
 </body>
-
 </html>
