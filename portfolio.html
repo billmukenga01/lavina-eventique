@@ -141,13 +141,19 @@
             background: #111;
         }
 
-        /* Images: cover the slide for dramatic, immersive portfolio feel */
+        /* Images: default is cover for landscape/wide images */
         .portfolio-slide img {
             width: 100%;
             height: 75vh;
             object-fit: cover;
             display: block;
             transition: transform 0.6s ease;
+        }
+
+        /* Portrait images: contain so full image is visible */
+        .portfolio-slide.portrait-fit img {
+            object-fit: contain;
+            background: #111;
         }
 
         @media (max-width: 991px) {
@@ -159,6 +165,21 @@
 
         .portfolio-slide:hover img {
             transform: scale(1.03);
+        }
+
+        /* Click hint text */
+        .portfolio-click-hint {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #999;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .portfolio-click-hint i {
+            color: #fc6060;
+            margin-right: 6px;
+            font-size: 15px;
         }
 
         .portfolio-slide .slide-overlay {
@@ -538,6 +559,10 @@
             </div>
         </div>
 
+        <div class="container">
+            <p class="portfolio-click-hint"><i class="fas fa-hand-pointer"></i> Click on any image to view it in full size</p>
+        </div>
+
         <div class="container-fluid" style="padding: 0 15px;">
             <div class="portfolio-carousel owl-carousel owl-theme">
 
@@ -732,7 +757,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 items: 1,
                 loop: filtered.length > 1,
                 center: true,
-                margin: 20,
+                margin: 15,
                 nav: true,
                 navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'],
                 dots: true,
@@ -741,10 +766,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 autoplayHoverPause: true,
                 smartSpeed: 500,
                 responsive: {
-                    0:    { items: 1, margin: 10, stagePadding: 10 },
-                    768:  { items: 1, margin: 20, stagePadding: 40 },
-                    1200: { items: 1, margin: 30, stagePadding: 80 }
+                    0:    { items: 1, margin: 8,  stagePadding: 0  },
+                    768:  { items: 1, margin: 15, stagePadding: 20 },
+                    1200: { items: 1, margin: 20, stagePadding: 40 }
                 }
+            });
+
+            // Smart fit: detect portrait images and apply contain
+            carousel.find('.portfolio-slide img').each(function() {
+                var $img = $(this);
+                var img = new Image();
+                img.onload = function() {
+                    if (this.naturalHeight > this.naturalWidth) {
+                        $img.closest('.portfolio-slide').addClass('portrait-fit');
+                    }
+                };
+                img.src = $img.attr('src');
             });
 
             // Store the current filtered images for lightbox
