@@ -44,13 +44,13 @@
         /* ========== Portfolio Styles ========== */
 
         .portfolio-slider-section {
-            padding: 80px 0 40px;
+            padding: 60px 0 20px;
             background: #fff;
         }
 
         .portfolio-section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .portfolio-section-title .section-subtitle {
@@ -93,7 +93,7 @@
         /* ========== Category Filter Buttons ========== */
         .portfolio-filter-menu {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
         }
 
         .portfolio-filter-menu .filter-btn {
@@ -126,7 +126,7 @@
 
         /* ========== Owl Carousel overrides ========== */
         .portfolio-carousel .owl-stage-outer {
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
         }
 
@@ -137,18 +137,24 @@
         .portfolio-slide {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
-            background: #f5f5f5;
+            border-radius: 8px;
+            background: #111;
         }
 
-        /* Images: contain (not cover) — show full image, no stretch/crop */
+        /* Images: cover the slide for dramatic, immersive portfolio feel */
         .portfolio-slide img {
             width: 100%;
-            height: 500px;
-            object-fit: contain;
+            height: 75vh;
+            object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
-            background: #f0f0f0;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 991px) {
+            .portfolio-slide img { height: 55vh; }
+        }
+        @media (max-width: 576px) {
+            .portfolio-slide img { height: 45vh; }
         }
 
         .portfolio-slide:hover img {
@@ -532,7 +538,7 @@
             </div>
         </div>
 
-        <div class="container-fluid" style="padding: 0 30px;">
+        <div class="container-fluid" style="padding: 0 15px;">
             <div class="portfolio-carousel owl-carousel owl-theme">
 
                 <!-- ======= WEDDINGS & RURACIOS ======= -->
